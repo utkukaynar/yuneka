@@ -11,8 +11,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'rails_admin', '~> 0.7.0'
-gem 'rails_admin_import', '~> 1.2.0'
+# gem 'rails_admin', '~> 0.7.0'
+# gem 'rails_admin_import', '~> 1.2.0'
 gem 'devise'
 
 # Use Puma as the app server
