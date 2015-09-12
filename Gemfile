@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.0'
 # gem 'rails_admin', '~> 0.7.0'
 # gem 'rails_admin_import', '~> 1.2.0'
 gem 'devise'
+gem 'paperclip', '~> 4.3.1'
+gem 'ancestry', '~> 2.1.0'
 
 # Use Puma as the app server
 gem 'puma'
