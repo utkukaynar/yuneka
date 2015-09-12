@@ -18,11 +18,9 @@ gem 'devise'
 # Use Puma as the app server
 gem 'puma'
 
-# Gem for Heroku development
-gem 'rails_12factor'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'better_errors'
   gem 'byebug'
   gem 'quiet_assets', '~> 1.1.0'
   gem 'pry'
