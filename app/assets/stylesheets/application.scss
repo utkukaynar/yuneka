@@ -13,7 +13,9 @@
 */
 
 @import "bootstrap-sprockets";
-@import "bootswatch/yeti/variables";
+@import "bootswatch/simplex/variables";
 @import "bootstrap";
-@import "bootswatch/yeti/bootswatch";
+@import "bootswatch/simplex/bootswatch";
+@import "flexslider";
+@import "base";
 @import "welcome"
