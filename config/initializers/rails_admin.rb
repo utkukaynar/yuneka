@@ -18,6 +18,9 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+    
+    # Add the nestable action for configured models
+    nestable
 
     ## With an audit adapter, you can add:
     # history_index
@@ -26,10 +29,16 @@ RailsAdmin.config do |config|
   
   config.model Category do
     field :name
+    field :vendor, :belongs_to_association
+    field :description
     field :parent_id, :enum do
       enum_method do
         :parent_enum
       end
     end
+    nestable_tree({
+      position_field: :position,
+      max_depth: 5
+    })
   end
 end
