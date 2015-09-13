@@ -8,14 +8,6 @@ RailsAdmin.config do |config|
   end
   config.current_user_method(&:current_admin)
 
-  ## == Cancan ==
-  # config.authorize_with :cancan
-
-  ## == PaperTrail ==
-  # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
-
-  ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -30,5 +22,14 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+  
+  config.model Category do
+    field :name
+    field :parent_id, :enum do
+      enum_method do
+        :parent_enum
+      end
+    end
   end
 end
