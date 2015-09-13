@@ -41,4 +41,5 @@ RailsAdmin.config do |config|
       max_depth: 5
     })
   end
+  
 end
