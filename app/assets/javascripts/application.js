@@ -14,5 +14,6 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery.flexslider-min
+//= require ckeditor/init
 //= require turbolinks
 //= require_tree .

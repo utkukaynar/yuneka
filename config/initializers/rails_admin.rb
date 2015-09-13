@@ -42,4 +42,11 @@ RailsAdmin.config do |config|
     })
   end
   
+  config.model Page do
+    field :title
+    field :text, :ck_editor
+    field :meta_description
+    field :meta_tags
+  end
+  
 end

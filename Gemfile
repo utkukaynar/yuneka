@@ -14,14 +14,15 @@ gem 'jbuilder', '~> 2.0'
 gem 'rails_admin', '~> 0.7.0'
 gem 'rails_admin_import', '~> 1.2.0'
 gem 'rails_admin_nestable', '~> 0.3.2'
+gem 'ckeditor'
 gem 'devise'
 gem 'paperclip', '~> 4.3.1'
 gem 'ancestry', '~> 2.1.0'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'devise-i18n'
 
-# Use Puma as the app server
-gem 'puma'
+# Use Unicorn as the app server
+gem 'unicorn-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
