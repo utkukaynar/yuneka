@@ -1,5 +1,7 @@
 class Category < ActiveRecord::Base
   belongs_to :vendor
+  validates :name, presence: true
+  validates :vendor_id, presence: true
   has_ancestry
   
   def parent_enum
