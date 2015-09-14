@@ -1,0 +1,103 @@
+<div class="row">
+  <div class="page-header text-center">
+    <%= link_to vendor_path(@vendor) do %>
+      <%= image_tag @vendor.image.url(:large), class: 'vendor-page-logo image-responsive', alt: @vendor.title + ' Logo' %>
+    <% end %>
+  </div>
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <li><%= link_to 'Ana Sayfa', root_path %></li>
+      <% if @category.root? %>
+        <li class="active"><%= @category.name %></li>
+      <% else %>  
+        <% @category.ancestors.each do |ancestor| %>
+          <li><%= link_to ancestor.name, category_path(vendor_id: @vendor.id, id: ancestor.id) %></li>
+        <% end %>
+        <li class="active"><%= @category.name %></li>
+      <% end %>      
+    </ol>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-3 sidemenu">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <% if @category.has_children? %>
+        <% @category.children.order(created_at: :asc).each do |node| %>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading<%= node.id %>">
+              <h4 class="panel-title">
+                <%= link_to node.name, category_path(vendor_id: @vendor.id, id: node.id) %>
+                <a role="button" class="pull-right" data-toggle="collapse" data-parent="#accordion" href="#id<%= node.id %>" aria-expanded="false" aria-controls="id<%= node.id %>">
+                  <span class="glyphicon glyphicon-menu-right"></span>
+                </a>
+              </h4>
+            </div>
+            <div id="id<%= node.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+              <ul class="list-group">
+                <% node.children.order(created_at: :asc).each do |sub_node|  %>
+                  <li class="list-group-item">
+                    <%= link_to sub_node.name, category_path(vendor_id: @vendor.id, id: sub_node.id) %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="heading<%= @category.parent.id %>">
+            <h4 class="panel-title">
+              <%= link_to @category.parent.name, category_path(vendor_id: @vendor.id, id: @category.parent.id) %>
+              <a role="button" class="pull-right" data-toggle="collapse" data-parent="#accordion" href="#id<%= @category.parent.id %>" aria-expanded="true" aria-controls="id<%= @category.parent.id %>">
+                <span class="glyphicon glyphicon-menu-down"></span>
+              </a>
+            </h4>
+          </div>
+          <div id="id<%= @category.parent.id %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <ul class="list-group">
+              <% @category.siblings.order(created_at: :asc).each do |sibling|  %>
+                <li class="list-group-item">
+                  <%= link_to sibling.name, category_path(vendor_id: @vendor.id, id: sibling.id) %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>    
+      <% end %>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-9 content">
+    <h1 id="categorytitle"><%= @category.name %></h1>
+    <div class="well">
+      <%= @category.description.html_safe %>
+    </div>
+    <% @category.children.order(created_at: :asc).each do |child| %>
+      <%= link_to category_path(id: child.id) do %>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail text-center category-thumb">
+             <%= image_tag child.image.url(:medium), class: 'img-responsive' %>
+             <div class="caption">
+               <h5><%= child.name %></h5>
+             </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <% if @category.products.exists? %>
+      <div class="col-md-12 text-center">
+        <h3><%= @category.name.titleize %> Ürünleri</h3>
+        <hr>
+      </div>
+      <% @category.products.each do |item| %>
+        <div class="col-sm-6 col-md-4">
+          <%= link_to product_path(item) do %>
+            <div class="thumbnail product-img">
+              <%= image_tag item.image.url(:thumb), alt: item.name %>
+              <div class="caption text-center">
+                <h5><%= item.name %></h5>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %> 
+    <% end %>
+  </div>
+</div>

@@ -30,7 +30,8 @@ RailsAdmin.config do |config|
   config.model Category do
     field :name
     field :vendor, :belongs_to_association
-    field :description
+    field :description, :ck_editor
+    field :image
     field :parent_id, :enum do
       enum_method do
         :parent_enum
@@ -47,6 +48,21 @@ RailsAdmin.config do |config|
     field :text, :ck_editor
     field :meta_description
     field :meta_tags
+    field :image
+  end
+  
+  config.model Vendor do
+    field :title
+    field :description, :ck_editor
+    field :image
+  end
+  
+  config.model Product do
+    field :name
+    field :description, :ck_editor
+    field :unit
+    field :category, :belongs_to_association
+    field :image
   end
   
 end
