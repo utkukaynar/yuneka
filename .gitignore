@@ -78,4 +78,4 @@ config/database.yml
 .Trashes
 Icon?
 ehthumbs.db
-Thumbs.db
+Thumbs.dbpublic/*
