@@ -3,7 +3,6 @@ class Category < ActiveRecord::Base
   has_many :products
   validates :name, presence: true
   validates :vendor_id, presence: true
-  validates :image, presence: true
   has_ancestry :cache_depth => true
   
   def parent_enum
