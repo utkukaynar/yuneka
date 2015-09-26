@@ -24,7 +24,13 @@ gem 'devise-i18n'
 # Use Unicorn as the app server
 gem 'unicorn-rails'
 
-group :development, :test do
+group :development do
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-unicorn',   require: false
+  
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'better_errors'
   gem 'quiet_assets', '~> 1.1.0'

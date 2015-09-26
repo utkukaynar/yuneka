@@ -43,11 +43,12 @@ RailsAdmin.config do |config|
     })
   end
   
-  config.model Page do
+  config.model Post do
     field :title
     field :text, :ck_editor
     field :meta_description
     field :meta_tags
+    field :type
     field :image
     field :type, :enum
   end
