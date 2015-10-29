@@ -1,0 +1,10 @@
+I"§(function() {
+  $(document).ready(function() {
+    return $('.flexslider').flexslider({
+      animation: "fade",
+      controlNav: false
+    });
+  });
+
+}).call(this);
+:ET
