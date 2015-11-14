@@ -51,6 +51,12 @@ RailsAdmin.config do |config|
     field :type, :enum
     field :image
   end
+
+  config.model Page do
+    field :title
+    field :text, :ck_editor
+    field :image
+  end
   
   config.model Vendor do
     field :title
