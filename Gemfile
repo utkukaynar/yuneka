@@ -25,12 +25,7 @@ gem 'devise-i18n'
 gem 'unicorn-rails'
 
 group :development do
-  gem 'capistrano',         require: false
-  gem 'capistrano-rvm',     require: false
-  gem 'capistrano-rails',   require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano3-unicorn',   require: false
-  
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'quiet_assets', '~> 1.1.0'
   gem 'pry'
