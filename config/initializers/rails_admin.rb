@@ -18,7 +18,7 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
-    
+
     # Add the nestable action for configured models
     nestable
 
@@ -26,7 +26,7 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-  
+
   config.model Category do
     field :name
     field :vendor, :belongs_to_association
@@ -42,13 +42,13 @@ RailsAdmin.config do |config|
       max_depth: 5
     })
   end
-  
+
   config.model Post do
     field :title
     field :text, :ck_editor
     field :meta_description
     field :meta_tags
-    field :type, :enum
+    field :kind, :enum
     field :image
   end
 
@@ -57,13 +57,13 @@ RailsAdmin.config do |config|
     field :text, :ck_editor
     field :image
   end
-  
+
   config.model Vendor do
     field :title
     field :description, :ck_editor
     field :image
   end
-  
+
   config.model Product do
     field :name
     field :description, :ck_editor
@@ -71,5 +71,5 @@ RailsAdmin.config do |config|
     field :category, :belongs_to_association
     field :image
   end
-  
+
 end
