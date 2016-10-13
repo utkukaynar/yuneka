@@ -40,8 +40,8 @@ group :development do
   gem 'spring'
   gem 'annotate'
   gem 'capistrano', '~> 3.6.1'
-  gem 'capistrano-bundler', '~> 1.1.2'
-  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
 
   # Add this if you're using rbenv
   gem 'capistrano-rbenv', github: "capistrano/rbenv"
