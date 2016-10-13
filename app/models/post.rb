@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id               :integer          not null, primary key
+#  title            :string
+#  text             :text
+#  meta_description :text
+#  meta_tags        :string
+#  kind             :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
 class Post < ActiveRecord::Base
   enum kind: [:article, :announcement]
   has_attached_file :image,

@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id                 :integer          not null, primary key
+#  name               :string
+#  description        :text
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  ancestry           :string
+#  vendor_id          :integer
+#  position           :integer
+#  ancestry_depth     :integer          default(0)
+#  image_file_name    :string
+#  image_content_type :string
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#
+
 class Category < ActiveRecord::Base
   belongs_to :vendor
   has_many :products

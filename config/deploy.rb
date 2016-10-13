@@ -1,20 +1,17 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.6.1'
 
 set :application, 'yuneka'
 set :repo_url, 'git@github.com:utkukaynar/yuneka.git'
 
-ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+set :rbenv_type, :user # or :system, depends on your rbenv setup
+set :rbenv_ruby, '2.3.1p112'
 
-set :use_sudo, false
-set :bundle_binstubs, nil
-set :linked_files, fetch(:linked_files, []).push('config/database.yml')
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_roles, :all # default value
 
-after 'deploy:publishing', 'deploy:restart'
+set :deploy_to, '/home/rails/yuneka'
 
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:reload'
-  end
-end
+set :linked_files, %w{config/database.yml}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}

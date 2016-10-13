@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: pages
+#
+#  id               :integer          not null, primary key
+#  title            :string
+#  text             :text
+#  meta_description :text
+#  meta_tags        :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
 class Page < ActiveRecord::Base
   has_attached_file :image, 
     styles: { large: "600x600>", medium: "400x400>", thumb: "100x100>" }, 
