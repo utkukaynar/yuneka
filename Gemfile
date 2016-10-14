@@ -45,4 +45,3 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano3-puma'
 end
-gem 'dotenv-rails', :groups => [:development, :test]
