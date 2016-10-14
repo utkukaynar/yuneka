@@ -79,3 +79,6 @@ config/database.yml
 Icon?
 ehthumbs.db
 Thumbs.dbpublic/*
+
+# Ignore application configuration
+/config/application.yml
