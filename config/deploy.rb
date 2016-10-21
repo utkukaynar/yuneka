@@ -80,7 +80,7 @@ namespace :deploy do
   desc "Regenerate Sitemaps"
   task :regenerate_sitemap do
     on roles(:app), in: :sequence, wait: 10 do
-      run("cd #{deploy_to}/current; /usr/bin/env rake sitemap:refresh RAILS_ENV=#{rails_env}")
+      run("cd #{deploy_to}/current; /usr/bin/env rake sitemap:refresh RAILS_ENV=production)
     end
   end
 
