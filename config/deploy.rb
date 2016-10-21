@@ -80,7 +80,7 @@ namespace :deploy do
   desc "Regenerate Sitemaps"
   task :regenerate_sitemap do
     on roles(:app), in: :sequence, wait: 5 do
-      execute 'bundle exec rake sitemap:refresh RAILS_ENV=production'
+      execute '/usr/local/rvm/bin/rvm default do bundle exec rake sitemap:refresh'
     end
   end
 
