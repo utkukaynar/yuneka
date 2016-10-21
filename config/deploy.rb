@@ -87,8 +87,8 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
-  after  :finishing,    :cleanup
   after :finishing,     :regenerate_sitemap
+  after  :finishing,    :cleanup
 end
 
 # ps aux | grep puma    # Get puma pid
