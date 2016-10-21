@@ -49,7 +49,7 @@ namespace :puma do
   before :start, :make_dirs
 end
 
-namespace :raketasks
+namespace :raketasks do
   task :run do  
     on roles(:all), in: :sequence, wait: 5 do      
       within release_path do
