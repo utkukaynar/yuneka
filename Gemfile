@@ -21,6 +21,7 @@ gem 'ancestry', '~> 2.1.0'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'devise-i18n'
 gem 'meta-tags', '~> 2.1'
+gem 'sitemap_generator'
 
 
 # Use Unicorn as the app server

@@ -49,6 +49,7 @@ namespace :puma do
   before :start, :make_dirs
 end
 
+
 namespace :deploy do
   desc "Make sure local git is in sync with remote."
   task :check_revision do
@@ -76,10 +77,16 @@ namespace :deploy do
     end
   end
 
+  desc "Regenerate Sitemaps"
+  task :regenerate_sitemap do
+    on roles(:app), in: :sequence, wait: 10 do
+      run("cd #{deploy_to}/current; /usr/bin/env rake sitemap:refresh RAILS_ENV=#{rails_env}")
+    end
+  end
+
   before :starting,     :check_revision
-  # after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
-  # after  :finishing,    :restart
+  after :finishing,     :regenerate_sitemap
 end
 
 # ps aux | grep puma    # Get puma pid
