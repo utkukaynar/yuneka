@@ -1,8 +1,8 @@
 require "capistrano/setup"
 require "capistrano/deploy"
-require 'capistrano/rails/migrations'
-require 'capistrano/bundler'
 require 'capistrano/rvm'
+require 'capistrano/rails/migrations';
+require 'capistrano/bundler'
 require 'capistrano/puma'
 require 'capistrano/puma/nginx'
 
