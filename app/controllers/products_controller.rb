@@ -5,6 +5,6 @@ class ProductsController < ApplicationController
     @vendor = @category.vendor
     @page_title = @vendor.title + " | " + @product.name
     @page_description = @product.description
-    @page_keywords = @vendor.categories.map(&:name).split(", ")
+    @page_keywords = SEARCH_ENGINE_KEYWORDS.concat(@vendor.categories.map(&:name).split(", "))
   end
 end

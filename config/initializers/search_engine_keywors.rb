@@ -1,0 +1,1 @@
+SEARCH_ENGINE_KEYWORDS = [ "fronius", "böhler", "kaynak", "tel", "makina", "makine", "gazaltı", "alüminyum", "paslanmaz", "308", "316", "bakır", "tig", "mig", "mag", "elektrod", "kontak meme", "nozul", "trafimed", "zengin", "maske", "arctech", "sarf", "işgüvenliği"]
