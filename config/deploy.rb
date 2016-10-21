@@ -49,6 +49,16 @@ namespace :puma do
   before :start, :make_dirs
 end
 
+namespace :raketasks
+  task :run do  
+    on roles(:all), in: :sequence, wait: 5 do      
+      within release_path do
+        execute :rake, ENV['task'], "RAILS_ENV=production"
+      end 
+    end
+  end
+end
+
 
 namespace :deploy do
   desc "Make sure local git is in sync with remote."
@@ -77,15 +87,7 @@ namespace :deploy do
     end
   end
 
-  desc "Regenerate Sitemaps"
-  task :regenerate_sitemap do
-    on roles(:app), in: :sequence, wait: 5 do
-      execute '/usr/local/rvm/bin/rvm default do bundle exec rake sitemap:refresh'
-    end
-  end
-
   before :starting,     :check_revision
-  after :finishing,     :regenerate_sitemap
   after  :finishing,    :cleanup
 end
 
