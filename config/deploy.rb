@@ -86,17 +86,9 @@ namespace :deploy do
       invoke 'puma:restart'
     end
   end
-  
-  desc 'Refresh Sitemaps'
-  task :sitemap do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'raketasks:run task=sitemap:refresh'
-    end
-  end
 
   before :starting,     :check_revision
   after  :finishing,    :cleanup
-  after :finishing, :sitemap
 end
 
 # ps aux | grep puma    # Get puma pid
